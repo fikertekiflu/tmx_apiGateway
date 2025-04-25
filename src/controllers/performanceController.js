@@ -40,7 +40,6 @@ const getKpis = async (req, res) => {
       end: end.toISOString().split('T')[0],
     };
   };
-
   switch (period) {
     case 'today':
       startDate = endDate = today.toISOString().split('T')[0];
@@ -81,7 +80,6 @@ const getSalesData = async (req, res) => {
   const { startDate, endDate, purchaseType, agentUuid, batchNumber } = req.query;
   await handlePerformanceRequest(req, res, 'get-sales-data', { startDate, endDate, purchaseType, agentUuid, batchNumber });
 };
-
 
 consumeQueue('response-queue', (msg) => {
   if (msg) {

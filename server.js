@@ -1,5 +1,6 @@
 const express = require('express');
 const performanceRoutes = require('./src/routes/performanceRoute'); // Assuming you create this file
+const inventoryRoutes = require('./src/routes/inventoryRoute'); // Assuming you create this file
 const { consumeQueue } = require('./src/config/rabbitmq');
 const logger = require('./src/config/logger');
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/tmx/performance', performanceRoutes);
+app.use('/api/tmx/inventory', inventoryRoutes);
 
  // You might not need this in API Gateway if performance service handles DB
 
